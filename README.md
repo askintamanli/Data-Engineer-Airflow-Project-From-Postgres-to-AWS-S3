@@ -1,6 +1,6 @@
 # Data Engineer Airflow Project From Postgres to AWS S3
 
-![airflow](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/3d3b27c5-0620-490b-84d1-85031372d515)
+![airflow](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/22fa7742-c120-46bf-aaf0-6d58f0e15125)
 
 
 ### Hello everyone. There is not too much case-study project about data engineer field. This is really good project to understand what doese data engineer do in real life.
@@ -23,7 +23,8 @@
 
 ## 1.1. Create Postgres database
 Open the pgAdmin page and create a new database named 'CRM'.
-![1](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/799ff888-943c-47ef-a0c4-818aafd81f29)
+
+![1](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/c297b377-06d9-48a3-beae-0f84c2604290)
 
 ## 1.2. Create table named 'orders'
 Go to Tables and open Query Tool. We're gonna write SQL statement for create 'orders' table.
@@ -40,20 +41,20 @@ create table if not exists public.orders (
 ## 1.3. Load data to table
 Right click to 'orders' table and select 'Import/Export data'. You can get the data from my github repository.
 
-![2](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/7fa3f28c-58bb-4a78-8052-f87d59803272)
-![3](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/44f68fa3-fea7-4fa4-abae-64f941c88a80)
+![2](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/199a1d52-bb35-4a16-af7d-3bc3bf6eb63f)
+![3](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/bb255116-42ca-4812-97ce-baa39311788b)
 
 Than click OK button. Now let's check our data. Open again Query Tool page and write this SQL statement. Make sure that run only this statement.
 
 ```
 SELECT * FROM public.orders
 ```
-![4](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/e12c439c-a2b0-44d0-847c-c72709dda22d)
+![4](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/8bea6544-97d9-4c58-95e1-7d7a745bd329)
 
 ## 2. Create AWS S3 Bucket
 Go to AWS S3 page and create a bucket. My bucket name is 'from-postgres-data'.
 
-![5](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/89823331-b97a-40f7-9225-90dd53ba2c80)
+![5](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/b38e6725-597c-4041-9a3b-faf75d534fe9)
 
 ## 3.1. Create Postgres connection
 We should create connections before create Airflow DAG.
@@ -68,7 +69,7 @@ Open the Airflow webserver → Admin → Connections →Create new connection
 - Password: airflow (you can learn it from docker-compose.yaml file)
 - Port: 5432 (you can learn port number from pgAdmin page)
 
- ![6](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/67640553-1934-4189-a463-587c7c35b419)
+![6](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/85f65896-4f08-434f-96ae-9a2fcea0ba94)
 
  Test it, if there is no problem save it.
 
@@ -80,7 +81,7 @@ Open the Airflow webserver → Admin → Connections →Create new connection
 - AWS Access Key ID: (You can learn it form AWS)
 - AWS Secret Access Key ID: (You can learn it form AWS)
 
-![7](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/d5908aa4-5431-4f17-bcbb-e1f73a2dfcb8)
+![7](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/824093c7-3d8f-49a1-b698-5624efea4fae)
 
 Test it, if there is no problem save it.
 
@@ -151,14 +152,15 @@ with DAG(
     task1
 ```
 
-## 5.1. Run the DAG
+## 5. Run the DAG
 Open and login Airflow webserver. Than run the DAG.
 
-![8](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/3907ea4a-09b6-4791-ad6b-8e42bc917ccf)
+![8](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/3ebea2bd-1a4b-4a2f-90d3-6c05a3c5894b)
 
 ALL SUCCESS. Let's check the S3 bucket.
 
-![9](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/f6328ef8-ad9f-42a9-a88d-bcb4ad169ced)
+![9](https://github.com/askintamanli/Data-Engineer-Airflow-Project-From-Postgres-to-AWS-S3/assets/63555029/e670e8a6-568f-4c25-bbc1-89a1c2a7ce6f)
+
 
 Today is July 25 and we set the start date July 20 in python file. So we have 20–24 July data. Tomorrow Airflow is going to upload data of 25 July automatically for us.
 
