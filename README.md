@@ -6,6 +6,9 @@
 ### Hello everyone. There is not too much case-study project about data engineer field. This is really good project to understand what doese data engineer do in real life.
 ### Today we're gonna get data from Postgres database and upload the data to AWS S3 bucket. Airflow is gonna upload the data automatically to S3 bucket daily. (I run Airflow in Docker. If you don't know how to run Airflow in Docker, you can read my previously article.)
 
+### You can also view the project in my medium account ([https://medium.com/@askintamanli](https://medium.com/@askintamanli/data-engineer-airflow-project-automate-daily-data-from-postgres-to-aws-s3-1f7a24a7ce))
+
+
 ## Requirements
 - Basic knowlage Airflow
 - Basic knowlage Docker
